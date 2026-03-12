@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<p> bu  Yosh sahifasi</p><br>
-<a href="{% url 'home' %}"> Back </a>
-<h1> Yoshim: 19</h1>
+    <h1>{{ title }}</h1>
+    <p>Bu yosh sahifasi</p><br>
+
+    <a href="{% url 'home' %}">Back</a>
+    <hr>
+
+    {% for y in yoshlar %}
+        <p>Mening yoshim: {{ y.yosh }}</p>
+    {% empty %}
+        <p>Bazamiz bosh</p>
+    {% endfor %}
 </body>
 </html>

@@ -2,14 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<p> bu home sahifasi blog uchun</p><br>
-<a href="{% url 'mening_ismim' %}">Ism sahifasi</a><br>
-<a href="{% url 'mening_familyam' %}">Familya  sahifasi</a><br>
-<a href="{% url 'yoshim' %}"> Yosh sahifasi</a><br>
-<a href="{% url 'university' %}"> University sahifasi</a><br>
-<a href="{% url 'postlar' %}"> Postlar sahifasi</a><br>
+    <h1>{{ title }}</h1>
+    <p>Bu home sahifasi blog uchun</p><br>
+
+    <a href="{% url 'mening_ismim' %}">Ism sahifasi</a><br>
+    <a href="{% url 'mening_familyam' %}">Familya sahifasi</a><br>
+    <a href="{% url 'yoshim' %}">Yosh sahifasi</a><br>
+    <a href="{% url 'university' %}">University sahifasi</a><br>
+    <a href="{% url 'postlar' %}">Postlar sahifasi</a><br>
+
+    <hr>
+
+    {% for post in postlar %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+    {% empty %}
+        <p>Bazamiz bosh</p>
+    {% endfor %}
 </body>
-</html>
+</html>6

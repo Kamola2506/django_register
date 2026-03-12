@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<p> bu university sahifasi</p><br>
-<a href="{% url 'home' %}"> Back </a>
-<h1> University: Acharya University </h1>
+    <h1>{{ title }}</h1>
+    <p>Bu universitet sahifasi</p><br>
+
+    <a href="{% url 'home' %}">Back</a>
+    <hr>
+
+    {% for u in universities %}
+        <p>Universitetim: {{ u.university }}</p>
+    {% empty %}
+        <p>Bazamiz bosh</p>
+    {% endfor %}
 </body>
 </html>

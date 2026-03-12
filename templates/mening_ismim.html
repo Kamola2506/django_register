@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<p> bu ism sahifasi</p><br>
-<a href="{% url 'home' %}"> Back </a>
-<h1> Ismim: Kamola </h1>
+    <h1>{{ title }}</h1>
+    <p>Bu ism sahifasi</p><br>
+
+    <a href="{% url 'home' %}">Back</a>
+    <hr>
+
+    {% for ism in ismlar %}
+        <p>Ismim: {{ ism.ism }}</p>
+    {% empty %}
+        <p>Bazamiz bosh</p>
+    {% endfor %}
 </body>
 </html>
